@@ -46,42 +46,18 @@ class Utils {
         alias = 'OPSfpsWfkvps';
       case AliasEnum.none:
         alias = '';
-
-      //OPSyGCrxPB notifications
     }
 
-    final Map<String,String> headers = {
+    final Map<String,dynamic> headers = {
       'Content-Type': 'application/json'
     };
 
-    // if(!SettingsData.getType){
-      headers.addAll({
-        'Accept': 'application/json, text/plain, */*',
-        'Accept-Encoding': 'gzip, deflate, br, zstd',
-        'Accept-Language': 'en-US,en;q=0.5',
-        'Connection': 'keep-alive',
-        'Cache-Control': 'max-age=0',
-        'Host': 'api.ecsc.gov.sy:8080',
-        'Referer': 'https://www.ecsc.gov.sy/',
-        'Origin': 'https://www.ecsc.gov.sy',
-        'Sec-Ch-Ua': '"Not/A)Brand";v="8", "Chromium";v="127", "Microsoft Edge";v="127"',
-        'Sec-Ch-Ua-Mobile': '?0',
-        'Sec-Ch-Ua-Platform': 'Windows',
-        'Sec-Fetch-Dest': 'empty',
-        'Sec-Fetch-Mode': 'cors',
-        'Sec-Fetch-Site': 'same-site',
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11.15; rv:129.0) Gecko/20110101 Firefox/128.0',
-        'Source': 'WEB',
-      });
-    //As Edge
-    //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0',
-    // }else{
-    //   headers.addAll({
-    //     'Source': 'API',
-    //     'Version': 2,
-    //     'Authorization': session,
-    //   });
-    // }
+
+    headers.addAll({
+      'Source': 'API',
+      'Version': 2,
+      'Authorization': session,
+    });
 
     if(alias.isNotEmpty){
       headers.addAll({
@@ -89,7 +65,7 @@ class Utils {
       });
     }
 
-    if(session.isNotEmpty){ // && !SettingsData.getType
+    if(session.isNotEmpty){
       headers.addAll({
         'Cookie': 'SESSION=$session',
       });
